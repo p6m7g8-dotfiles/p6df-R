@@ -24,6 +24,22 @@ p6df::modules::R::deps() {
 p6df::modules::R::init() {
 
   p6df::modules::R::Renv::init "$P6_DFZ_SRC_DIR"
+
+  p6df::modules::R::prompt::init
+}
+
+######################################################################
+#<
+#
+# Function: p6df::modules::R::prompt::init()
+#
+#>
+######################################################################
+p6df::modules::R::prompt::init() {
+
+  p6df::core::prompt::line::add "p6_lang_prompt_info"
+  p6df::core::prompt::line::add "p6_lang_envs_prompt_info"
+  p6df::core::prompt::lang::line::add R
 }
 
 ######################################################################
@@ -56,26 +72,17 @@ p6df::modules::R::Renv::init() {
 ######################################################################
 #<
 #
-# Function: p6df::modules::R::prompt::line()
+# Function: str str = p6_R_env_prompt_info()
 #
-#  Depends:	 p6_r
+#  Returns:
+#	str - str
+#
+#  Environment:	 RENV_ROOT _R_
 #>
 ######################################################################
-p6df::modules::R::prompt::line() {
+p6_R_env_prompt_info() {
 
-  p6_r_prompt_info
-}
+  local str="renv_root=$RENV_ROOT"
 
-######################################################################
-#<
-#
-# Function: p6_r_prompt_info()
-#
-#  Depends:	 p6_lang
-#>
-######################################################################
-p6_r_prompt_info() {
-
-  echo -n "R:\t  "
-  p6_lang_version "R"
+  p6_return_str "$str"
 }
