@@ -64,7 +64,7 @@ p6df::modules::R::Renv::init() {
     export RENV_ROOT
     export HAS_RENV=1
 
-    p6df::util::path_if $RENV_ROOT/bin
+    p6_path_if $RENV_ROOT/bin
     eval "$(p6_run_code renv init - zsh)"
   fi
 }
