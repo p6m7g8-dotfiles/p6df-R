@@ -82,7 +82,7 @@ p6df::modules::R::Renv::init() {
 ######################################################################
 p6_R_env_prompt_info() {
 
-  local str="renv_root=$RENV_ROOT"
+  local str="renv_root:\t  $RENV_ROOT"
 
   p6_return_str "$str"
 }
