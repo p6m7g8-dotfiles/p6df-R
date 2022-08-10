@@ -1,3 +1,4 @@
+# shellcheck shell=bash
 ######################################################################
 #<
 #
@@ -26,6 +27,8 @@ p6df::modules::R::init() {
   p6df::modules::R::Renv::init "$P6_DFZ_SRC_DIR"
 
   p6df::modules::R::prompt::init
+
+  p6_return_void
 }
 
 ######################################################################
@@ -40,6 +43,8 @@ p6df::modules::R::prompt::init() {
   p6df::core::prompt::line::add "p6_lang_prompt_info"
   p6df::core::prompt::line::add "p6_lang_envs_prompt_info"
   p6df::core::prompt::lang::line::add R
+
+  p6_return_void
 }
 
 ######################################################################
@@ -50,23 +55,22 @@ p6df::modules::R::prompt::init() {
 #  Args:
 #	dir -
 #
-#  Environment:	 DISABLE_ENVS HAS_RENV RENV_ROOT
+#  Environment:	 HAS_RENV P6_DFZ_LANGS_DISABLE RENV_ROOT
 #>
 ######################################################################
 p6df::modules::R::Renv::init() {
   local dir="$1"
 
-  [ -n "$DISABLE_ENVS" ] && return
-
-  RENV_ROOT=$dir/viking/Renv
-
-  if [ -x $RENV_ROOT/bin/renv ]; then
-    export RENV_ROOT
-    export HAS_RENV=1
+  local RENV_ROOT=$dir/viking/Renv
+  if p6_string_blank "$P6_DFZ_LANGS_DISABLE" && p6_file_executable "$RENV_ROOT/bin/renv"; then
+    p6_env_export RENV_ROOT "$RENV_ROOT"
+    p6_env_export HAS_RENV 1
 
     p6_path_if $RENV_ROOT/bin
-    eval "$(p6_run_code renv init - zsh)"
+    eval "$(renv init - zsh)"
   fi
+
+  p6_return_void
 }
 
 ######################################################################
