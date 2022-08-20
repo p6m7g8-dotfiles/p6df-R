@@ -44,11 +44,15 @@
 
 #### p6df-R/init.zsh:
 
-- p6df::modules::R::Renv::init(dir)
+- p6df::modules::R::Renv::latest()
+- p6df::modules::R::Renv::latest::installed()
 - p6df::modules::R::deps()
+- p6df::modules::R::external::brew()
+- p6df::modules::R::home::symlinks()
 - p6df::modules::R::init()
-- p6df::modules::R::prompt::init()
-- str str = p6_R_env_prompt_info()
+- p6df::modules::R::langs()
+- p6df::modules::R::vscodes()
+- str str = p6df::modules::R::env::prompt::info()
 
 
 
