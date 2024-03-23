@@ -1,0 +1,21 @@
+name: Build
+on:
+  pull_request: {}
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    env:
+      CI: "true"
+      P6_DFZ_SRC_P6M7G8_DOTFILES_DIR: ".."
+      P6_TEST_COLOR_OFF: 1
+      TERM: "xterm-256color"
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+      - name: Build
+        run:  |-
+          git clone https://github.com/p6m7g8-dotfiles/p6common $P6_DFZ_SRC_P6M7G8_DOTFILES_DIR/p6common
+          mkdir /tmp/p6
+          $P6_DFZ_SRC_P6M7G8_DOTFILES_DIR/p6common/bin/p6ctl test
+    container:
+      image: docker
