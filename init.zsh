@@ -23,7 +23,7 @@ p6df::modules::R::deps() {
 ######################################################################
 p6df::modules::R::external::brew() {
 
-  brew install openblas
+  p6df::modules::homebrew::cli::brew::install openblas
 
   p6_return_void
 }
@@ -84,30 +84,6 @@ p6df::modules::R::langs() {
 ######################################################################
 #<
 #
-# Function: p6df::modules::R::Renv::latest::installed()
-#
-#>
-######################################################################
-p6df::modules::R::Renv::latest::installed() {
-
-  Renv install -l | p6_filter_select "[0-9]" | p6_filter_from_end "2" | p6_filter_spaces_strip
-}
-
-######################################################################
-#<
-#
-# Function: p6df::modules::R::Renv::latest()
-#
-#>
-######################################################################
-p6df::modules::R::Renv::latest() {
-
-  Renv install -l | p6_filter_select "[0-9]" | p6_filter_last "1" | p6_filter_spaces_strip
-}
-
-######################################################################
-#<
-#
 # Function: p6df::modules::R::vscodes()
 #
 #>
@@ -121,14 +97,22 @@ p6df::modules::R::vscodes() {
 ######################################################################
 #<
 #
-# Function: p6df::modules::R::init()
+# Function: p6df::modules::R::init(_module, dir)
+#
+#  Args:
+#	_module -
+#	dir -
 #
 #  Environment:	 P6_DFZ_SRC_DIR
 #>
 ######################################################################
 p6df::modules::R::init() {
+  local _module="$1"
+  local dir="$2"
 
   p6df::core::lang::mgr::init "$P6_DFZ_SRC_DIR/viking/Renv" "R"
+
+  p6_bootstrap "$dir"
 
   p6_return_void
 }
