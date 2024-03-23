@@ -10,8 +10,7 @@
   - [Summary](#summary)
   - [Contributing](#contributing)
   - [Code of Conduct](#code-of-conduct)
-  - [Changes](#changes)
-    - [Usage](#usage)
+  - [Usage](#usage)
   - [Author](#author)
 
 ### Badges
@@ -34,28 +33,43 @@
 
 - [Code of Conduct](https://github.com/p6m7g8/.github/blob/master/CODE_OF_CONDUCT.md)
 
-## Changes
-
-- [Change Log](CHANGELOG.md)
-
 ## Usage
+
+
+### Aliases
+
+
+### Functions
 
 ### p6df-R:
 
 #### p6df-R/init.zsh:
 
-- p6df::modules::R::Renv::latest()
-- p6df::modules::R::Renv::latest::installed()
 - p6df::modules::R::deps()
 - p6df::modules::R::external::brew()
 - p6df::modules::R::home::symlinks()
-- p6df::modules::R::init()
+- p6df::modules::R::init(_module, dir)
 - p6df::modules::R::langs()
 - p6df::modules::R::vscodes()
 - str str = p6df::modules::R::env::prompt::info()
 
 
+### p6df-R/lib:
 
+#### p6df-R/lib/Renv.sh:
+
+- p6df::modules::R::Renv::latest()
+- p6df::modules::R::Renv::latest::installed()
+
+
+
+## Hier
+```text
+.
+└── Renv.sh
+
+1 directory, 1 file
+```
 ## Author
 
 Philip M . Gollucci <pgollucci@p6m7g8.com>
