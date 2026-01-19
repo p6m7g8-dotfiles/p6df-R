@@ -5,8 +5,6 @@
 ## Badges
 
 [![License](https://img.shields.io/badge/License-Apache%202.0-yellowgreen.svg)](https://opensource.org/licenses/Apache-2.0)
-[![Mergify](https://img.shields.io/endpoint.svg?url=https://gh.mergify.io/badges//p6df-R/&style=flat)](https://mergify.io)
-[![Gitpod ready-to-code](https://img.shields.io/badge/Gitpod-ready--to--code-blue?logo=gitpod)](<https://gitpod.io/#https://github.com//p6df-R>)
 
 ## Summary
 
@@ -33,8 +31,9 @@
 - p6df::modules::R::home::symlinks()
 - p6df::modules::R::init(_module, dir)
 - p6df::modules::R::langs()
+- p6df::modules::R::prompt::lang()
 - p6df::modules::R::vscodes()
-- str str = p6df::modules::R::env::prompt::info()
+- str str = p6df::modules::R::prompt::env()
 
 ## p6df-R/lib
 
