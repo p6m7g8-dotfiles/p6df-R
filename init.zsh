@@ -58,7 +58,7 @@ p6df::modules::R::langs() {
 
   # nuke the old one
   local previous=$(p6df::modules::R::Renv::latest::installed)
-  Renv uninstall -f $previous
+  Renv uninstall -f "$previous"
 
   # get the shiny one
   local latest=$(p6df::modules::R::Renv::latest)
@@ -68,12 +68,12 @@ p6df::modules::R::langs() {
 	--enable-R-shlib \
 	--without-blas \
 	--disable-java"
-  CONFIGURE_OPTS="$configure_opts" Renv install $latest 
+  CONFIGURE_OPTS="$configure_opts" Renv install "$latest"
 
-  Renv global $latest
+  Renv global "$latest"
   Renv rehash
 
-  # XXX: install packages - languageserver, lintr, httpgd
+  # XXX: install packages - languageserver, linter, httpgd
 
   # cli tools
   pip install radian
@@ -120,7 +120,7 @@ p6df::modules::R::init() {
 ######################################################################
 #<
 #
-# Function: str str = p6df::modules::R::env::prompt::info()
+# Function: str str = p6df::modules::R::prompt::env()
 #
 #  Returns:
 #	str - str
@@ -128,9 +128,39 @@ p6df::modules::R::init() {
 #  Environment:	 RENV_ROOT
 #>
 ######################################################################
-p6df::modules::R::env::prompt::info() {
+p6df::modules::R::prompt::env() {
 
   local str="renv_root:\t  $RENV_ROOT"
 
   p6_return_str "$str"
+}
+
+######################################################################
+#<
+#
+# Function: p6df::modules::R::prompt::lang()
+#
+#>
+######################################################################
+p6df::modules::R::prompt::lang() {
+
+  local ver
+
+  local ver_mgr
+  ver_mgr=$(Renv version-name 2>/dev/null)
+  if p6_string_eq "$ver_mgr" "system"; then
+    local ver_sys="sys@"
+    local v
+    v=$(R --version | awk '/ version / { print $3}')
+    if p6_string_blank "$v"; then
+      ver_sys="sys:no"
+    fi
+    ver="$ver_sys"
+  else
+    ver="$ver_mgr"
+  fi
+
+  local str="R:$ver"
+
+  p6_return "$str"
 }
