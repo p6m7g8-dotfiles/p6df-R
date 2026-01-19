@@ -49,7 +49,6 @@ p6df::modules::R::home::symlinks() {
 #
 # Function: p6df::modules::R::langs()
 #
-#  Environment:	 CONFIGURE_OPTS XXX
 #>
 #/ Synopsis
 #/  $XDG_CONFIG_HOME/radian/profile or $HOME/.config/radian/profile (Unix)
@@ -138,7 +137,10 @@ p6df::modules::R::prompt::env() {
 ######################################################################
 #<
 #
-# Function: p6df::modules::R::prompt::lang()
+# Function: str str = p6df::modules::R::prompt::lang()
+#
+#  Returns:
+#	str - str
 #
 #>
 ######################################################################
