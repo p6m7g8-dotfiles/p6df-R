@@ -23,7 +23,7 @@ p6df::modules::R::deps() {
 ######################################################################
 p6df::modules::R::external::brew() {
 
-  p6df::modules::homebrew::cli::brew::install openblas
+  p6df::core::homebrew::cli::brew::install openblas
 
   p6_return_void
 }
