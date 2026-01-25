@@ -150,7 +150,7 @@ p6df::modules::R::prompt::lang() {
   str=$(p6df::core::lang::prompt::lang \
     "R" \
     "Renv version-name 2>/dev/null" \
-    "R --version | awk '/ version / { print $3}'")
+    "R --version | p6_filter_row_select ' version ' | p6_filter_column_pluck 3")
 
   p6_return_str "$str"
 }
