@@ -89,8 +89,10 @@ p6df::modules::R::langs() {
 ######################################################################
 p6df::modules::R::vscodes() {
 
-  code --install-extension REditorSupport.r
-  code --install-extension RDebugger.r-debugger
+  p6df::modules::vscode::extension::install REditorSupport.r
+  p6df::modules::vscode::extension::install RDebugger.r-debugger
+
+  p6_return_void
 }
 
 ######################################################################
