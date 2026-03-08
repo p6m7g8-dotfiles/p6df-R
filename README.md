@@ -40,8 +40,8 @@ TODO: Add a short summary of this module.
 - `p6df::modules::R::home::symlinks()`
 - `p6df::modules::R::init(_module, dir)`
   - Args:
-    - _module - 
-    - dir - 
+    - _module -
+    - dir -
 - `p6df::modules::R::langs()`
   - Synopsis: $XDG_CONFIG_HOME/radian/profile or $HOME/.config/radian/profile (Unix)
 - `p6df::modules::R::vscodes()`
