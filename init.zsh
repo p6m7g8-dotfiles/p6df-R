@@ -75,7 +75,7 @@ p6df::modules::R::langs() {
   # XXX: install packages - languageserver, linter, httpgd
 
   # cli tools
-  pip install radian
+  uv tool install radian
 
   p6_return_void
 }
