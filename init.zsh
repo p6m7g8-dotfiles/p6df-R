@@ -17,11 +17,11 @@ p6df::modules::R::deps() {
 ######################################################################
 #<
 #
-# Function: p6df::modules::R::external::brew()
+# Function: p6df::modules::R::external::brews()
 #
 #>
 ######################################################################
-p6df::modules::R::external::brew() {
+p6df::modules::R::external::brews() {
 
   p6df::core::homebrew::cli::brew::install openblas
 
