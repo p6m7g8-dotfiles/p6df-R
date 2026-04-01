@@ -98,42 +98,16 @@ p6df::modules::R::vscodes() {
 ######################################################################
 #<
 #
-# Function: p6df::modules::R::init(_module, dir)
-#
-#  Args:
-#	_module -
-#	dir -
+# Function: p6df::modules::R::langmgr::init()
 #
 #  Environment:	 P6_DFZ_SRC_DIR
 #>
 ######################################################################
-p6df::modules::R::init() {
-  local _module="$1"
-  local dir="$2"
+p6df::modules::R::langmgr::init() {
 
   p6df::core::lang::mgr::init "$P6_DFZ_SRC_DIR/viking/Renv" "R"
 
-  p6_bootstrap "$dir"
-
   p6_return_void
-}
-
-######################################################################
-#<
-#
-# Function: str str = p6df::modules::R::prompt::env()
-#
-#  Returns:
-#	str - str
-#
-#  Environment:	 RENV_ROOT
-#>
-######################################################################
-p6df::modules::R::prompt::env() {
-
-  local str="renv_root:\t  $RENV_ROOT"
-
-  p6_return_str "$str"
 }
 
 ######################################################################
@@ -155,4 +129,20 @@ p6df::modules::R::prompt::lang() {
     "R --version | p6_filter_row_select ' version ' | p6_filter_column_pluck 3")
 
   p6_return_str "$str"
+}
+
+######################################################################
+#<
+#
+# Function: words R $RENV_ROOT = p6df::modules::R::prompt::env()
+#
+#  Returns:
+#	words - R $RENV_ROOT
+#
+#  Environment:	 RENV_ROOT
+#>
+######################################################################
+p6df::modules::R::prompt::env() {
+
+  p6_return_words 'R' '$RENV_ROOT'
 }
