@@ -144,5 +144,5 @@ p6df::modules::R::prompt::lang() {
 ######################################################################
 p6df::modules::R::prompt::env() {
 
-  p6_return_words 'R' "$"
+  p6_return_words 'R' '$RENV_ROOT'
 }
