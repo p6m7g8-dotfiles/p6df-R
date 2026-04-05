@@ -17,13 +17,14 @@ p6df::modules::R::deps() {
 ######################################################################
 #<
 #
-# Function: p6df::modules::R::external::brews()
+# Function: p6df::modules::R::langmgr::init()
 #
+#  Environment:	 P6_DFZ_SRC_DIR
 #>
 ######################################################################
-p6df::modules::R::external::brews() {
+p6df::modules::R::langmgr::init() {
 
-  p6df::core::homebrew::cli::brew::install openblas
+  p6df::core::lang::mgr::init "$P6_DFZ_SRC_DIR/viking/Renv" "R"
 
   p6_return_void
 }
@@ -47,11 +48,17 @@ p6df::modules::R::home::symlinks() {
 ######################################################################
 #<
 #
-# Function: p6df::modules::R::langs()
+# Function: p6df::modules::R::external::brews()
 #
 #>
-#/ Synopsis
-#/  $XDG_CONFIG_HOME/radian/profile or $HOME/.config/radian/profile (Unix)
+######################################################################
+p6df::modules::R::external::brews() {
+
+  p6df::core::homebrew::cli::brew::install openblas
+
+  p6_return_void
+}
+
 ######################################################################
 p6df::modules::R::langs() {
 
@@ -98,18 +105,11 @@ p6df::modules::R::vscodes() {
 ######################################################################
 #<
 #
-# Function: p6df::modules::R::langmgr::init()
+# Function: p6df::modules::R::langs()
 #
-#  Environment:	 P6_DFZ_SRC_DIR
 #>
-######################################################################
-p6df::modules::R::langmgr::init() {
-
-  p6df::core::lang::mgr::init "$P6_DFZ_SRC_DIR/viking/Renv" "R"
-
-  p6_return_void
-}
-
+#/ Synopsis
+#/  $XDG_CONFIG_HOME/radian/profile or $HOME/.config/radian/profile (Unix)
 ######################################################################
 #<
 #
