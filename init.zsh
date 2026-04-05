@@ -60,6 +60,12 @@ p6df::modules::R::external::brews() {
 }
 
 ######################################################################
+#<
+#
+# Function: p6df::modules::R::langs()
+#
+#>
+######################################################################
 p6df::modules::R::langs() {
 
   # nuke the old one
@@ -105,20 +111,14 @@ p6df::modules::R::vscodes() {
 ######################################################################
 #<
 #
-# Function: p6df::modules::R::langs()
-#
-#>
-#/ Synopsis
-#/  $XDG_CONFIG_HOME/radian/profile or $HOME/.config/radian/profile (Unix)
-######################################################################
-#<
-#
 # Function: str str = p6df::modules::R::prompt::lang()
 #
 #  Returns:
 #	str - str
 #
 #>
+#/ Synopsis
+#/  $XDG_CONFIG_HOME/radian/profile or $HOME/.config/radian/profile (Unix)
 ######################################################################
 p6df::modules::R::prompt::lang() {
 
@@ -134,10 +134,10 @@ p6df::modules::R::prompt::lang() {
 ######################################################################
 #<
 #
-# Function: words R $RENV_ROOT = p6df::modules::R::prompt::env()
+# Function: words R = p6df::modules::R::prompt::env()
 #
 #  Returns:
-#	words - R $RENV_ROOT
+#	words - R
 #
 #  Environment:	 RENV_ROOT
 #>
