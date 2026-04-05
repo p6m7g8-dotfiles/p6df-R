@@ -1,5 +1,11 @@
 # shellcheck shell=bash
 ######################################################################
+#<
+#
+# Function: p6df::modules::R::deps()
+#
+#>
+######################################################################
 p6df::modules::R::deps() {
   ModuleDeps=(
     p6m7g8-dotfiles/p6df-python
@@ -9,6 +15,13 @@ p6df::modules::R::deps() {
 }
 
 ######################################################################
+#<
+#
+# Function: p6df::modules::R::langmgr::init()
+#
+#  Environment:	 P6_DFZ_SRC_DIR
+#>
+######################################################################
 p6df::modules::R::langmgr::init() {
 
   p6df::core::lang::mgr::init "$P6_DFZ_SRC_DIR/viking/Renv" "R"
@@ -16,6 +29,13 @@ p6df::modules::R::langmgr::init() {
   p6_return_void
 }
 
+######################################################################
+#<
+#
+# Function: p6df::modules::R::home::symlinks()
+#
+#  Environment:	 P6_DFZ_SRC_DIR
+#>
 ######################################################################
 p6df::modules::R::home::symlinks() {
 
@@ -25,6 +45,12 @@ p6df::modules::R::home::symlinks() {
   p6_return_void
 }
 
+######################################################################
+#<
+#
+# Function: p6df::modules::R::external::brews()
+#
+#>
 ######################################################################
 p6df::modules::R::external::brews() {
 
@@ -62,6 +88,12 @@ p6df::modules::R::langs() {
 }
 
 ######################################################################
+#<
+#
+# Function: p6df::modules::R::vscodes()
+#
+#>
+######################################################################
 p6df::modules::R::vscodes() {
 
   p6df::modules::vscode::extension::install REditorSupport.r
@@ -73,43 +105,11 @@ p6df::modules::R::vscodes() {
 ######################################################################
 #<
 #
-# Function: p6df::modules::R::deps()
-#
-#>
-######################################################################
-#<
-#
-# Function: p6df::modules::R::external::brews()
-#
-#>
-######################################################################
-#<
-#
-# Function: p6df::modules::R::home::symlinks()
-#
-#  Environment:	 P6_DFZ_SRC_DIR
-#>
-######################################################################
-#<
-#
 # Function: p6df::modules::R::langs()
 #
 #>
 #/ Synopsis
 #/  $XDG_CONFIG_HOME/radian/profile or $HOME/.config/radian/profile (Unix)
-######################################################################
-#<
-#
-# Function: p6df::modules::R::vscodes()
-#
-#>
-######################################################################
-#<
-#
-# Function: p6df::modules::R::langmgr::init()
-#
-#  Environment:	 P6_DFZ_SRC_DIR
-#>
 ######################################################################
 #<
 #
