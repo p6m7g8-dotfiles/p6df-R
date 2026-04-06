@@ -36,17 +36,14 @@ TODO: Add a short summary of this module.
 ##### p6df-R/init.zsh
 
 - `p6df::modules::R::deps()`
-- `p6df::modules::R::external::brew()`
+- `p6df::modules::R::external::brews()`
 - `p6df::modules::R::home::symlinks()`
-- `p6df::modules::R::init(_module, dir)`
-  - Args:
-    - _module -
-    - dir -
+- `p6df::modules::R::langmgr::init()`
 - `p6df::modules::R::langs()`
-  - Synopsis: $XDG_CONFIG_HOME/radian/profile or $HOME/.config/radian/profile (Unix)
 - `p6df::modules::R::vscodes()`
-- `str str = p6df::modules::R::prompt::env()`
 - `str str = p6df::modules::R::prompt::lang()`
+  - Synopsis: $XDG_CONFIG_HOME/radian/profile or $HOME/.config/radian/profile (Unix)
+- `words R = p6df::modules::R::prompt::env()`
 
 #### p6df-R/lib
 
